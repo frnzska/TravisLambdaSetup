@@ -5,7 +5,7 @@ echo "creating dest folder..."
 rm -rf dest && mkdir dest
 
 echo "copying source code..."
-cp -r index.py some_file.txt requirements.txt dest/
+cp -r index.py some_file.txt requirements.txt dest
 
 
 echo "install production dependencies..."
