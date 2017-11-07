@@ -19,7 +19,7 @@ before_install:
   - cd $APP
 
 before_deploy:
-  - ../.travis/lib_packaging
+  - bash .travis/lib_packaging
 
 
 script:
