@@ -21,8 +21,6 @@ before_install:
 before_deploy:
   - ../.travis/lib_packaging
 
-before_script:
-  - pip install -r requirements.txt
 
 script:
   - return 0
