@@ -22,7 +22,7 @@ before_deploy:
   - ../.travis/lib_packaging
 
 install:
-  - pip install -r requirements.txt
+  - pip install ../requirements.txt
 
 script:
   - return 0
