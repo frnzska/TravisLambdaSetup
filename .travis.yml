@@ -11,9 +11,9 @@ env:
 matrix:
   include:
     - python: '3.6'
-    env: APP=bar.lambda
+      env: APP=bar.lambda
     - python: '3.6'
-    env: APP=foo.lambda
+      env: APP=foo.lambda
 
 before_install:
   - cd $APP
@@ -21,6 +21,8 @@ before_install:
 before_deploy:
   - ../.travis/lib_packaging
 
+install:
+  - pip install -r requirements.txt
 
 script:
   - return 0
