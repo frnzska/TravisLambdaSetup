@@ -9,7 +9,7 @@ cp -r index.py some_file.txt requirements.txt dest
 
 echo "install production dependencies..."
 cd dest
-pip install -r requirements.txt -t dest
+pip install -r requirements.txt -t ../dest
 
 echo "zip code..."
 zip -r index.zip *
