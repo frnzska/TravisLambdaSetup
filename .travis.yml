@@ -6,14 +6,17 @@ sudo: false
 env:
   global:
     - AWS_BUCKET_REGION=eu-west-1
-    - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
 
 matrix:
   include:
     - python: '3.6'
-      env: APP=bar.lambda
+      env:
+        - APP=bar.lambda
+        - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
     - python: '3.6'
-      env: APP=foo.lambda
+      env:
+        - APP=foo.lambda
+        - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
 
 before_install:
   - cd $APP
@@ -38,3 +41,4 @@ deploy:
   skip_cleanup:      true
   on:
     all_branches:    true
+    
