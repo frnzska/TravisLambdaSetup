@@ -24,6 +24,8 @@ before_install:
 before_deploy:
   - ../.travis/lib_packaging.sh
 
+install:
+  - pip install python-dateutil
 
 script:
   - pytest
