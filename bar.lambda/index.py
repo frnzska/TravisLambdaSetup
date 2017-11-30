@@ -1,4 +1,4 @@
-from src.file1 import handler as main
+from src.MyFile import handler as main
 import os
 
 def handler(event, context):

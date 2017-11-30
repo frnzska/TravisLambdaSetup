@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import dateutil
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -17,8 +18,12 @@ def get_file(path):
             logger.exception(e)
     return content
 
+def some_function():
+    print('bailando')
 
 def handler():
     spec = get_file('src/specs/event_specification.json')
     logger.info(json.dumps(spec))
+
+
 
