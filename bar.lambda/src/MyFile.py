@@ -19,11 +19,8 @@ def get_file(path):
     return content
 
 def some_function():
-    print('bailando')
+    return 'bailando'
 
 def handler():
     spec = get_file('src/specs/event_specification.json')
     logger.info(json.dumps(spec))
-
-
-
