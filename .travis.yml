@@ -25,7 +25,7 @@ before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil
+  - pip install python-dateutil rollbar
 
 script:
   - pytest

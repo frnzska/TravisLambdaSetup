@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import dateutil
+import rollbar
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
