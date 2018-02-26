@@ -18,7 +18,6 @@ matrix:
         - APP=foo.lambda
         - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
 
-sudo: required
 
 services:
   - docker
