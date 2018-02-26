@@ -31,7 +31,7 @@ before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar kinesalite
+  - pip install python-dateutil rollbar
 
 script:
   - pytest
