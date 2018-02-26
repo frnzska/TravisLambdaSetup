@@ -25,12 +25,13 @@ services:
 
 before_install:
   - cd $APP
+  - docker run --name="kinesis_mock" -d -t -p 4567:4567 dlsniper/kinesalite:1.11.4
 
 before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar
+  - pip install python-dateutil rollbar kinesalite
 
 script:
   - pytest
