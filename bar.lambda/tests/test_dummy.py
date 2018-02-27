@@ -14,7 +14,8 @@ def test_some_function():
 def test_kinesis_mock_dummy():
     stream_name = 'asdf'
     mock_kinesis_client = boto3.client('kinesis', endpoint_url='http://localhost:4567',
-                                       aws_access_key_id='', aws_secret_access_key='')
+                                       aws_access_key_id='', aws_secret_access_key='',
+                                       region_name='eu-west-1')
     mock_kinesis_client.create_stream(StreamName=stream_name, ShardCount=1)
     src.MyFile.kinesis = mock_kinesis_client
 
