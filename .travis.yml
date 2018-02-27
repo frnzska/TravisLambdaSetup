@@ -6,6 +6,7 @@ sudo: false
 env:
   global:
     - AWS_BUCKET_REGION=eu-west-1
+    - AWS_DEFAULT_REGION=eu-west-1
 
 matrix:
   include:
@@ -24,6 +25,7 @@ services:
 
 before_install:
   - cd $APP
+  - sudo rm -f /etc/boto.cfg
   - docker run --name="kinesis_mock" -d -t -p 4567:4567 dlsniper/kinesalite:1.11.4
 
 before_deploy:
