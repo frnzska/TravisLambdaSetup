@@ -1,8 +1,7 @@
 import json
 import logging
 import os
-import dateutil
-import rollbar
+import boto3
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -25,3 +24,7 @@ def some_function():
 def handler():
     spec = get_file('src/specs/event_specification.json')
     logger.info(json.dumps(spec))
+
+kinesis = boto3.client('kinesis')
+def some_kinesis_function():
+    return kinesis.list_streams()
