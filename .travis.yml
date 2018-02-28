@@ -25,8 +25,7 @@ services:
 
 before_install:
   - cd $APP
-  - sudo rm -f /etc/boto.cfg
-  - docker run --name="kinesis_mock" -d -t -p 4567:4567 dlsniper/kinesalite:1.11.4
+  - localstack start --docker
 
 before_deploy:
   - ../.travis/lib_packaging.sh
