@@ -26,7 +26,7 @@ services:
 before_install:
   - cd $APP
   - pip install localstack
-  - docker run -p 4567-4578:4567-4578 -p 8080:8080 atlassianlabs/localstack & sleep 120
+  - docker run -p 4567-4578:4567-4578 -e SERVICES=kinesis,s3 --name="local_aws" -d localstack/localstack & sleep 25
 
 before_deploy:
   - ../.travis/lib_packaging.sh
