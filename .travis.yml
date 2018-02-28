@@ -25,17 +25,18 @@ services:
 
 before_install:
   - cd $APP
-  - sudo rm -f /etc/boto.cfg
-  - docker run --name="kinesis_mock" -d -t -p 4567:4567 dlsniper/kinesalite:1.11.4
+  - pip install localstack
+  - docker run -p 4567-4578:4567-4578 -e SERVICES=kinesis,s3 --name="local_aws" -d localstack/localstack & sleep 25
 
 before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar boto3
+  - pip install python-dateutil rollbar boto3==1.6.0
+
 
 script:
-  - pytest
+  - pytest -s
 
 
 deploy:
@@ -45,7 +46,7 @@ deploy:
   bucket:            $AWS_BUCKET
   region:            $AWS_BUCKET_REGION
   upload-dir:        $TRAVIS_REPO_SLUG/$APP/$TRAVIS_COMMIT
-  acl:               private # keep them private
+  acl:               private
   local_dir:         dest
   skip_cleanup:      true
   on:
