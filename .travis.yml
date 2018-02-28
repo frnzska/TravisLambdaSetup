@@ -30,7 +30,7 @@ before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar botocore==1.9 boto==2.46 boto3==1.6.0 localstack==0.8.5 pytest==3.2.1
+  - pip install python-dateutil rollbar botocore==1.9 boto==2.46 boto3==1.6.0 localstack==0.8.5 pytest==3.2.1 awscli==1.14.48
 
 
 script:
