@@ -25,9 +25,6 @@ services:
 
 before_install:
   - cd $APP
-  - pip install localstack
-  - docker run -it -p 4567-4578:4567-4578 -p 8080:8080 atlassianlabs/localstack &
-
 
 before_deploy:
   - ../.travis/lib_packaging.sh
