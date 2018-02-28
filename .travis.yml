@@ -30,10 +30,10 @@ before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar boto3
+  - pip install python-dateutil rollbar boto3 localstack
 
 script:
-  - pytest
+  - pytest -s
 
 
 deploy:
