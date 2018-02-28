@@ -25,12 +25,14 @@ services:
 
 before_install:
   - cd $APP
+  - pip install localstack
+  - docker run -it -p 4567-4578:4567-4578 -p 8080:8080 atlassianlabs/localstack & sleep 120
 
 before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar botocore==1.9 boto==2.46 boto3==1.6.0 localstack==0.8.5 pytest==3.2.1 awscli==1.14.48
+  - pip install python-dateutil rollbar boto3==1.6.0
 
 
 script:
