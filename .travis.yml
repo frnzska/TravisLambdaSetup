@@ -1,7 +1,8 @@
 language: python
 
 python: '3.6'
-dist: precise
+sudo: required
+
 
 env:
   global:
@@ -32,7 +33,7 @@ before_deploy:
   - ../.travis/lib_packaging.sh
 
 install:
-  - pip install python-dateutil rollbar boto3==1.6.0
+  - pip install python-dateutil rollbar botocore=1.9.1 boto3==1.6.0
 
 
 script:
