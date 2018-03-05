@@ -36,7 +36,8 @@ install:
 
 
 script:
-  - docker run -p 4567-4578:4567-4578 -e SERVICES=kinesis,s3 --name="local_aws" localstack/localstack & sleep 60; pytest
+  - docker run -p 4567-4578:4567-4578 -e SERVICES=kinesis,s3 --name="local_aws" localstack/localstack & sleep 60
+  - pytest
 
 deploy:
   provider:          s3
