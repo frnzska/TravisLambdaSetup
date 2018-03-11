@@ -22,15 +22,13 @@ def test_s3_kinesis_function():
 
     s3_client.put_object(Bucket=bucket, Key=s3_key, Body=data)
 
-
-
     kinesis_client = aws_stack.connect_to_service('kinesis')
-    kinesis = aws_stack.create_kinesis_stream(stream, delete=True)
+    aws_stack.create_kinesis_stream(stream, delete=True)
 
     src.MyFile.s3 = s3_client
     src.MyFile.kinesis = kinesis_client
 
     src.MyFile.s3_kinesis_function(bucket, s3_key, stream)
-    result = aws_stack.kinesis_get_latest_records(stream, 'shardId-000000000000', count=1)[0]['Data'].replace('"', '')
+    result = aws_stack.kinesis_get_latest_records(stream, 'shardId-000000000000',
+                                                  count=1)[0]['Data'].replace('"', '')
     assert result == data
-
