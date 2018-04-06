@@ -31,17 +31,17 @@ services:
 before_install:
   - cd $APP
 
-
-before_deploy:
-  - ../.travis/lib_packaging.sh
-
 install:
   - pip install python-dateutil rollbar botocore==1.9.1 boto3==1.6.0 localstack
-
 
 script:
   - docker run -p 4567-4578:4567-4578 -e SERVICES=kinesis,s3 --name="local_aws" localstack/localstack & sleep 60
   - pytest
+
+before_deploy:
+  - cd
+  - echo $PWD
+  - .travis/lib_packaging.sh
 
 deploy:
   provider:          s3
