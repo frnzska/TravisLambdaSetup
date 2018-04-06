@@ -36,7 +36,7 @@ install:
 
 script:
   - docker run -p 4567-4578:4567-4578 -e SERVICES=kinesis,s3 --name="local_aws" localstack/localstack & sleep 60
-  - pytest
+  - pytest -s
 
 before_deploy:
   - $TRAVIS_BUILD_DIR/.travis/lib_packaging.sh
