@@ -9,6 +9,7 @@ cp -r `ls -A | grep -v "dest\|tests"` dest
 
 echo "install production dependencies..."
 cd dest
+ls
 pip install -r requirements.txt -t .
 
 echo "zip code..."
