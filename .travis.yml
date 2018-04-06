@@ -21,8 +21,8 @@ matrix:
         - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
         - python: '3.6'
       env:
-        - APP=other.lambda
-        - PYTHONPATH=$TRAVIS_BUILD_DIR/example.project/src/$APP:$PYTHONPATH
+        - APP=example.project/src/other.lambda
+        - PYTHONPATH=$TRAVIS_BUILD_DIR/$APP:$PYTHONPATH
         - python: '3.6'
 
 services:
