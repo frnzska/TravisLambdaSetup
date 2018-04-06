@@ -39,7 +39,7 @@ script:
   - pytest
 
 before_deploy:
-  - cd
+  - cd ~/$TRAVIS_BUILD_DIR
   - echo $PWD
   - .travis/lib_packaging.sh
 
