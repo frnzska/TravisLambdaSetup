@@ -19,7 +19,11 @@ matrix:
       env:
         - APP=foo.lambda
         - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
-
+        - python: '3.6'
+      env:
+        - APP=other.lambda
+        - PYTHONPATH=$TRAVIS_BUILD_DIR/example.project/src/$APP:$PYTHONPATH
+        - python: '3.6'
 
 services:
   - docker
