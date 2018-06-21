@@ -1,6 +1,6 @@
 # TravisLambdaSetup
 
-Example project to deploy lambda function code with Travis-Ci to s3 as zips, includes tests to mock AWS resources.
+Example project to deploy lambda function code with Travis-Ci to s3 as zips.
 
 ##### Structure:
 <pre>
